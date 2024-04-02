@@ -9,7 +9,7 @@ function acceptTask() {
   document.querySelector('[name="CampaignId"]+button')?.click();
 }
 function JobsMenu() {
-  var n = document.getElementsByClassName("btn-danger btn")[0]?.innerText;
+  var n = document.getElementsByClassName("mw-btn danger")[0]?.innerText;
   if (n != " Skip this task") {
     const Job = document.createElement("li");
     Job.innerHTML = `
@@ -165,24 +165,33 @@ function Reload() {
   if (a == "TTVCampaign-E0028:Worker already took all positions\nHome") {
     let localTime = new Date().getSeconds();
     if (localTime < 32) {
-      let reloadTime = ((32 - localTime) * 1000);
+      let reloadTime = ((32 - localTime) * 1000) + 1000;
       setTimeout(() => {
         acceptAndStart();
       }, reloadTime);
     } else {
-      let reloadTime = ((60 - localTime + 2) * 1000);
+      let reloadTime = ((60 - localTime + 2) * 1000) + 1000;
       setTimeout(() => {
         acceptAndStart();
       }, reloadTime);
     }
   } else if (b == "Task's answer(s) successfully submitted!.") {
-    setTimeout(() => {
-      acceptAndStart2();
-    }, 2000);
+    let localTime = new Date().getSeconds();
+    if (localTime < 32) {
+      let reloadTime = ((32 - localTime) * 1000) + 1000;
+      setTimeout(() => {
+        acceptAndStart2();
+      }, reloadTime);
+    } else {
+      let reloadTime = ((60 - localTime + 2) * 1000) + 1000;
+      setTimeout(() => {
+        acceptAndStart2();
+      }, reloadTime);
+    }
   } else {
     let localTime = new Date().getSeconds();
     if (localTime < 32) {
-      let reloadTime = (32 - localTime) * 1000;
+      let reloadTime = ((32 - localTime) * 1000);
       setTimeout(() => {
         JobsMenu();
       }, reloadTime);
