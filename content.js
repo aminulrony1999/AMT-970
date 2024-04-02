@@ -208,7 +208,7 @@ function sendNotificationMessage(message) {
 }
 
 try {
-  var n = document.getElementsByClassName("btn-danger btn")[0]?.innerText;
+  var n = document.getElementsByClassName("mw-btn danger")[0]?.innerText;
   if (n == " Skip this task") {
     sendNotificationMessage("A job is accepted !!!");
   }
